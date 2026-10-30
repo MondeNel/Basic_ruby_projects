@@ -8,18 +8,22 @@ def picker(prices)
   best_days = nil
 
   # Try each day as a possible buy day.
-  # We use each_with_index so we can get the day number as well as the price.
+  # We use each_with_index so we can get the day number as well as the price(buy day and price).
+  # buy_price is the current price | buy_day is the current index
+  # buy_price = 17(first element with the array) and buy_day = 0(index).
   prices.each_with_index do |buy_price, buy_day|
 
 
     # Try each later day as a possible sell day.
-    # We use each_with_index again to get the day number and price.
+    # We use each_with_index again to get the day number and price(sell day and price).
+    # sell_price is the current price | sell_day is the current index
+    # sell_price = 3(second element with the array) and sell_day = 1(index).
     prices.each_with_index do |sell_price, sell_day|
 
       # We can only sell after we buy.
       next unless sell_day > buy_day
 
-      # Work out how much money we would make on the days we buy and sell.
+      # we work out how much money we would make on the days we buy and sell.
       profit = sell_price - buy_price
 
       # we save these days if they make more money than our previous best days.

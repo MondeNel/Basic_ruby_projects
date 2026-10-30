@@ -1,25 +1,3 @@
-dictionary = ["below", "down", "go", "going", "horn", "how", "howdy",
-              "it", "i", "low", "own", "part", "partner", "sit"]
-
-=begin
-
-Look at each word in the dictionary.
-Make the message and dictionary word lowercase so capital letters do not matter.
-Count how many times that dictionary word appears anywhere in the message.
-If it appears at least once, save the word and its count in a hash.
-Return the hash when all dictionary words have been checked.
-
-For example, with the message "below":
-
-"below" appears 1 time.
-"low" appears 1 time.
-The other dictionary words do not appear.
-
-The result is:
-{"below"=>1, "low"=>1}
-
-=end
-
 def substrings(word, dictionary)
   # Make the message lowercase so "Howdy" can match "how".
   word = word.downcase
@@ -44,6 +22,41 @@ def substrings(word, dictionary)
   # Return the hash of found words and their counts.
   matches
 end
+
+dictionary = ["below", # 0
+              "down", # 1
+              "go", # 2
+              "going", # 3
+              "horn", # 4
+              "how", # 5
+              "howdy", # 6
+              "it", # 7
+              "i", # 8
+              "low", # 9
+              "own", # 10
+              "part", # 11
+              "partner", # 12
+              "sit"] # 13
+
+=begin
+
+The message is the text we are searching in.
+The dictionary is a list of little words to look for.
+
+We look for each dictionary word in the message.
+If we find it, we write down the word and how many times it appears.
+We keep doing that until we have checked every word.
+
+For example, our message is "below".
+
+The word "below" is in the message one time.
+The word "low" is also in the message one time because it is part of "below".
+The other dictionary words are not in the message.
+
+So the answer is:
+{"below"=>1, "low"=>1}
+
+=end
 
 p substrings("below", dictionary)
 

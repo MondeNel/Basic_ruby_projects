@@ -24,7 +24,8 @@
 # the final result is = Bmfy f xywnsl!
 #
 
-def caesar_cipher(string, shift) # string param = characters, shift param = the integer
+# string param = characters, shift param = the integer
+def caesar_cipher(string, shift)
   # Write the alphabet down so you can find each letter's place.
   alphabet = "abcdefghijklmnopqrstuvwxyz"
 

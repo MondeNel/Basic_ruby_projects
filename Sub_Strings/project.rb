@@ -14,7 +14,7 @@ def substrings(word, dictionary)
     count = word.scan(substring).length
 
     # Only save the word if we found it at least once.
-    matches[substring] = count if count > 0
+    matches[substring] = count if count.positive?
   end
 
   # Return the hash of found words and their counts.

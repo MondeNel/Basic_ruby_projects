@@ -14,9 +14,7 @@ def substrings(word, dictionary)
     count = word.scan(substring).length
 
     # Only save the word if we found it at least once.
-    if count > 0
-      matches[substring] = count
-    end
+    matches[substring] = count if count > 0
   end
 
   # Return the hash of found words and their counts.
@@ -38,34 +36,30 @@ dictionary = ["below", # 0
               "partner", # 12
               "sit"] # 13
 
-=begin
-
-The message is the text we are searching in.
-The dictionary is a list of little words to look for.
-
-We look for each dictionary word in the message.
-If we find it, we write down the word and how many times it appears.
-We keep doing that until we have checked every word.
-
-For example, our message is "below".
-
-The word "below" is in the message one time.
-The word "low" is also in the message one time because it is part of "below".
-The other dictionary words are not in the message.
-
-So the answer is:
-{"below"=>1, "low"=>1}
-
-=end
+#
+# The message is the text we are searching in.
+# The dictionary is a list of little words to look for.
+#
+# We look for each dictionary word in the message.
+# If we find it, we write down the word and how many times it appears.
+# We keep doing that until we have checked every word.
+#
+# For example, our message is "below".
+#
+# The word "below" is in the message one time.
+# The word "low" is also in the message one time because it is part of "below".
+# The other dictionary words are not in the message.
+#
+# So the answer is:
+# {"below"=>1, "low"=>1}
+#
 
 p substrings("below", dictionary)
 
 p substrings("Howdy partner, sit down! How's it going?", dictionary)
 
-=begin
-
-In the second message, "how" is found in "Howdy" and "How's", so its count is 2.
-"it" is found in "sit" and "it", so its count is 2.
-The method checks every dictionary word and stores only the ones it finds.
-
-=end
+#
+# In the second message, "how" is found in "Howdy" and "How's", so its count is 2.
+# "it" is found in "sit" and "it", so its count is 2.
+# The method checks every dictionary word and stores only the ones it finds.
+#

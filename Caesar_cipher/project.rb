@@ -1,30 +1,28 @@
-=begin
-
-Look at one character at a time.
-If it’s a letter, find its place in the alphabet.
-Move forward 5 places. If you pass z, continue from a.
-Keep uppercase letters uppercase.
-Leave spaces and punctuation alone.
-Put the characters back together.
-
-For example:
-(W) moves five places to B
-(h) moves five places to m
-(a) moves five places to f
-(t) moves five places to y
-
-(a) moves five places to f
-
-(s) moves five places to x
-(t) moves five places to y
-(r) moves five places to w
-(i) moves five places to n
-(n) moves five places to s
-(g) moves five places to l
-
-the final result is = Bmfy f xywnsl!
-
-=end
+#
+# Look at one character at a time.
+# If it’s a letter, find its place in the alphabet.
+# Move forward 5 places. If you pass z, continue from a.
+# Keep uppercase letters uppercase.
+# Leave spaces and punctuation alone.
+# Put the characters back together.
+#
+# For example:
+# (W) moves five places to B
+# (h) moves five places to m
+# (a) moves five places to f
+# (t) moves five places to y
+#
+# (a) moves five places to f
+#
+# (s) moves five places to x
+# (t) moves five places to y
+# (r) moves five places to w
+# (i) moves five places to n
+# (n) moves five places to s
+# (g) moves five places to l
+#
+# the final result is = Bmfy f xywnsl!
+#
 
 def caesar_cipher(string, shift) # string param = characters, shift param = the integer
   # Write the alphabet down so you can find each letter's place.
@@ -32,7 +30,7 @@ def caesar_cipher(string, shift) # string param = characters, shift param = the 
 
   # There are 26 letters. This keeps the shift from going past 26.
   # The modulo operator gives us the reminder after the division
-  shift = shift % 26
+  shift %= 26
 
   # we look at the message one character at a time.
   string.chars.map do |char| # We use map because we want to change every character in the string and collect the changed characters into a new array.
@@ -42,7 +40,8 @@ def caesar_cipher(string, shift) # string param = characters, shift param = the 
 
     # If it isn't a letter, such as a space or "!",
     # keep it just as it is.
-    next char if letter_number.nil? # we use the next key word to skip the rest of the current iteration and immediately jump to the next one
+    # we use the next key word to skip the rest of the current iteration and immediately jump to the next one
+    next char if letter_number.nil?
 
     # Move forward through the alphabet by the shift amount.
     # If we go past "z", start again at "a".
